@@ -11,10 +11,27 @@
 |
 */
 
+/**
+*UI Aria
+*/
+/*Website UI Route*/
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'my_admin'],function(){
+
+
+
+/**
+*Admin Aria
+*/
+/*Admin login page*/
+Route::get('/my_admin/login', function () {
+    return 'login page';
+});
+
+Route::group(['prefix'=>'my_admin','middleware'=>'admin'],function(){
+
 	Route::get('/','Admin\IndexController@index');
+
 });
